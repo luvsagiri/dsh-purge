@@ -28,7 +28,10 @@
   config:
     includeHarnessIdentity: false
     personaPrefix: ""
-    personaSuffix: Your working directory is {{cwd}}.
+    # dsh 0.2.1 起提示词模板只注册 provider / model，不再有 {{cwd}}：
+    # 写 "Your working directory is {{cwd}}." 会让提示词组装在发出任何模型请求前抛错。
+    # 工作目录由宿主自己的工作目录服务提供，这里留空。
+    personaSuffix: ""
 
 - id: dsh-purge
   inject: [systemPrompt, tools]

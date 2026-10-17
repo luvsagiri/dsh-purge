@@ -25,7 +25,8 @@
 # ── identity ────────────────────────────────────────────────────────────────
 
 # The preset's own persona, shadowing the deployment default for this agent.
-# `{{model}}` and `{{cwd}}` resolve from the agent's own route and workspace.
+# `{{model}}` resolves from the agent's own route. Do not use `{{cwd}}`: dsh 0.2.1
+# no longer registers it and prompt assembly would throw before any model request.
 - id: persona
   name: '@deepseek-ai/dsh-persona'
   config:
